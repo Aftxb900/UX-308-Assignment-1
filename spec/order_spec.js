@@ -4,19 +4,23 @@ describe("Tests all stages of an order", function () {
     beforeEach(function () {
         clearInput();
     });
+
     it("test hello", function () {
         const aResults = handleInput("hello");
-        expect(aResults[0]).toBe("Welcome to Rich's Acton Rapid Test.");
+        expect(aResults[0]).toBe("Welcome to Fast Bites.");
     });
-    it("test yes", function () {
+
+    it("test burger order", function () {
         handleInput("hello");
-        const aResults = handleInput("yes");
-        expect(aResults[0]).toBe("Your rapid test is reserved");
+        const aResults = handleInput("burger");
+        expect(aResults[0]).toBe("You selected Burger.");
     });
-    it("test no", function () {
+
+    it("test drink", function () {
         handleInput("hello");
-        const aResults = handleInput("no");
-        expect(aResults[0]).toBe("Thanks for trying our reservation system");
+        handleInput("burger");
+        handleInput("large");
+        const aResults = handleInput("cheese");
+        expect(aResults[0]).toBe("Would you like to add a drink to your order?");
     });
 });
-
